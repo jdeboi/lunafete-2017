@@ -1,42 +1,35 @@
-public class Node {
+class Node {
 
-  private String name;
-
-  private int x, y;
-
-  private List<Node> shortestPath = new LinkedList<Node>();
-
-  private Integer distance = Integer.MAX_VALUE;
-
+  String name;
+  int x, y;
+  List<Node> shortestPath = new LinkedList<Node>();
+  Integer distance = Integer.MAX_VALUE;
   Map<Node, Integer> adjacentNodes = new HashMap<Node, Integer>();
 
-  //public void addDestination(Node destination, int distance) {
-  //adjacentNodes.put(destination, distance);
-  //}
-
-  public void addDestination(Node destination) {
-    adjacentNodes.put(destination, int(getPointDistance(this, destination)));
-  }
-
-  public Node(String name, int x, int y) {
+ 
+  Node(String name, int x, int y) {
     this.name = name;
     this.x = x;
     this.y = y;
   }
+  
+  void addDestination(Node destination) {
+    adjacentNodes.put(destination, int(getPointDistance(this, destination)));
+  }
 
-  public void setDistance(int val) {
+  void setDistance(int val) {
     distance = val;
   }
 
-  public Integer getDistance() {
+  Integer getDistance() {
     return distance;
   }
 
-  public List<Node> getShortestPath() {
+  List<Node> getShortestPath() {
     return shortestPath;
   }
 
-  public String getShortestPathNames() {
+  String getShortestPathNames() {
     String names = " ";
     Iterator<Node> it = shortestPath.iterator();
     while (it.hasNext()) {
@@ -46,28 +39,28 @@ public class Node {
     return names;
   }
 
-  public Map<Node, Integer> getAdjacentNodes() {
+  Map<Node, Integer> getAdjacentNodes() {
     return adjacentNodes;
   }
 
-  public String getName() {
+  String getName() {
     return name;
   }
 
-  public int getX() {
+  int getX() {
     return this.x;
   }
 
-  public int getY() {
+  int getY() {
     return this.y;
   }
 
 
-  public void setShortestPath(List<Node> shortPath) {
+  void setShortestPath(List<Node> shortPath) {
     shortestPath = shortPath;
   }
 
-  public void display() {
+  void display() {
     fill(255);
     stroke(255);
     ellipse(x, y, 20, 20);
@@ -76,7 +69,7 @@ public class Node {
     text(name, x, y);
   }
 
-  public void displayShortestPath() {
+  void displayShortestPath() {
     fill(255, 0, 0);
     stroke(255, 0, 0);
     Iterator<Node> it = shortestPath.iterator();
@@ -91,7 +84,7 @@ public class Node {
     ellipse(x, y, 20, 20);
   }
 
-  public boolean mouseOver() {
+  boolean mouseOver() {
     float d = sqrt((mouseX - this.x)*(mouseX - this.x) + ((mouseY - this.y)*(mouseY - this.y)));
     return (d < 5);
   }

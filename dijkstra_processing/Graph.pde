@@ -1,21 +1,21 @@
-public class Graph {
+class Graph {
 
-  private Set<Node> nodes = new HashSet<Node>();
+  Set<Node> nodes = new HashSet<Node>();
 
-  public void addNode(Node nodeA) {
+  void addNode(Node nodeA) {
     nodes.add(nodeA);
   }
 
-  public void printSet() {
+  void printSet() {
     Iterator<Node> it = nodes.iterator();
     while (it.hasNext()) {
       Node n = it.next();
-      System.out.println(n.getName() + " " + n.getDistance() + n.getShortestPathNames());
+      println(n.getName() + " " + n.getDistance() + n.getShortestPathNames());
     }
-    System.out.println("---------------");
+    println("---------------");
   }
   
-  public Node getMouseNode() {
+  Node getMouseNode() {
     Iterator<Node> it = nodes.iterator();
     while (it.hasNext()) {
       Node currentNode = it.next();
@@ -26,7 +26,7 @@ public class Graph {
     return null;
   }
 
-  public void display() {
+  void display() {
     Iterator<Node> it = nodes.iterator();
     while (it.hasNext()) {
       Node currentNode = it.next();
@@ -43,7 +43,7 @@ public class Graph {
     }
   }
   
-  public void drawShortest() {
+  void drawShortest() {
     Node mouseNode = getMouseNode();
     if (mouseNode != null) {
       mouseNode.displayShortestPath();

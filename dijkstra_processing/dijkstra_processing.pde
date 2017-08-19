@@ -1,3 +1,12 @@
+/* 
+ Visualization of Dijkstra's algorithm for finding the
+ shortest path between two nodes in a (undirected?) graph.
+ 
+ Developed and adapted from 
+ http://www.baeldung.com/java-dijkstra
+ */
+
+
 import java.util.*;
 boolean showEdges = true;
 Graph graph;
