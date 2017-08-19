@@ -20,7 +20,7 @@ import netP5.*;
 OscP5 oscP5;
 NetAddress myRemoteLocation;
 
-
+PImage bg;
 Skeleton skeleton;
 boolean never = true;
 
@@ -36,8 +36,9 @@ Boolean tracking = false;
 //Button [] buttons;
 
 void setup() {
-  size(600, 600, P3D);
+  fullScreen();
   frameRate(25);
+  bg = loadImage("galaxy.jpg");
 
   skeleton = new Skeleton();
 
@@ -72,7 +73,8 @@ void draw() {
     background(0);  
   }
   else {
-    background(50);  
+    //image(bg, 0, 0, width, height);
+    background(0);
   }
   skeleton.drawSkeleton();
   skeleton.update();
